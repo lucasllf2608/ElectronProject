@@ -1,0 +1,15 @@
+{
+  "name": "electronProject",
+  "version": "1.0.0",
+  "description": "first application with electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/lucasllf2608/ElectronProject.git",
+  "author": "lucasllf2608",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.8.4"
+  }
+}
