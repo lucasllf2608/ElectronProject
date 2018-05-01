@@ -4,9 +4,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
+
+
+
+
+<script>
+
+
+
+function inserirValue(){
+
+var tempo = document.getElementById("tempo").value;
+document.getElementById("conta").innerHTML = tempo;
+
+}
+
+
+function iniciar(){
+
+
+}
+
+
+function pausar(){
+}
+
+function contador(){
+
+var conta = document.getElementById("conta");
+
+
+}
+
+</script>
 </head>
 <body>
 
-<h1>hello world</h1>
-</body>
+	<h1>Cronometro</h1>
+	<hr />
+
+
+	<div id="central">
+
+		<label>Tempo:</label> <input type="text" value="20:00" id="tempo"
+			onkeyup="inserirValue()" />
+
+		<h1 id="conta">20:00</h1>
+	</div>
+
+	<button type="button" onclick="inicar()" id="iniciar" value="Iniciar">Iniciar</button>
+	<button type="button" onclick="myFunction()">Zerar</button>
 </html>
