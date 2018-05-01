@@ -6,39 +6,52 @@
 <title>Insert title here</title>
 
 
+<script language="JavaScript" type="text/javascript">
+	function inserirValue() {
+		var tempo = document.getElementById("tempo").value;
+		document.getElementById("conta").innerHTML = tempo;
+	}
 
+	function iniciar(valor) {
+		console.log("start");
+		
+		document.getElementById("tempo").disabled = true;
+		
 
-<script>
+		if (document.getElementById("start").innerHTML == "Pausar") {
+			document.getElementById("start").innerHTML = "Continuar";
+		} else if (document.getElementById("start").innerHTML == "Continuar") {
+			document.getElementById("start").innerHTML = "Pausar";
+		} else {
+			document.getElementById("start").innerHTML = "Pausar";
+		}
+	}
 
+	function zerar() {
+		var tempo = "20:00";
+		document.getElementById("tempo").value = tempo;
+		document.getElementById("tempo").disabled = false;
+		document.getElementById("conta").innerHTML = tempo;
+		document.getElementById("start").innerHTML = "Iniciar";
+	}
 
+	function contador() {
+		var conta = document.getElementById("conta");
+	}
 
-function inserirValue(){
+	function validacaoHour(temp) {
+		if (event.keyCode<48 || event.keyCode>57) {
+			event.returnValue = false;
+			alert("somente número!");
+		}
 
-var tempo = document.getElementById("tempo").value;
-document.getElementById("conta").innerHTML = tempo;
-
-}
-
-
-function iniciar(){
-
-
-}
-
-
-function pausar(){
-}
-
-function contador(){
-
-var conta = document.getElementById("conta");
-
-
-}
-
+		if (temp.value.length == 2) {
+			temp.value += ":";
+		}
+	}
 </script>
 </head>
-<body>
+<body bgcolor="aqua">
 
 	<h1>Cronometro</h1>
 	<hr />
@@ -47,11 +60,14 @@ var conta = document.getElementById("conta");
 	<div id="central">
 
 		<label>Tempo:</label> <input type="text" value="20:00" id="tempo"
-			onkeyup="inserirValue()" />
+			onkeypress="validacaoHour(this)" onkeyup="inserirValue()"
+			maxlength="5" />
 
 		<h1 id="conta">20:00</h1>
-	</div>
 
-	<button type="button" onclick="inicar()" id="iniciar" value="Iniciar">Iniciar</button>
-	<button type="button" onclick="myFunction()">Zerar</button>
+
+		<button type="button" onclick="iniciar(this)" id="start">Iniciar</button>
+		<button type="button" onclick="zerar()">Zerar</button>
+
+	</div>
 </html>
